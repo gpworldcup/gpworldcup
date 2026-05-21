@@ -17,9 +17,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "GP World Cup",
-  description: "National MotoGP-style championship",
+export const metadata = {
+  verification: {
+    google: "oE9aqtdYk2CwEmUIF4BPuesBNyO5PbDbwAqilBKUVzs",
+  },
 };
 
 export default function RootLayout({
