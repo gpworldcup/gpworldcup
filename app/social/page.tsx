@@ -179,7 +179,7 @@ export default function SocialPage() {
 
   {/* FACEBOOK */}
   <a
-    href="https://facebook.com/TUUSUARIO"
+    href="https://www.facebook.com/profile.php?id=61589967883345"
     target="_blank"
     rel="noopener noreferrer"
     className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900/70 p-8 transition duration-300 hover:-translate-y-2 hover:border-blue-500/40 hover:shadow-[0_0_60px_rgba(59,130,246,0.2)]"
