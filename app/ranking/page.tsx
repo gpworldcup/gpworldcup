@@ -1,16 +1,66 @@
 export default function RankingPage() {
   const standings = [
-    { country: "Spain", points: 0 },
-    { country: "Italy", points: 0 },
-    { country: "France", points: 0 },
-    { country: "Australia", points: 0 },
-    { country: "Japan", points: 0 },
-    { country: "United States", points: 0 },
-    { country: "South Africa", points: 0 },
-    { country: "United Kingdom", points: 0 },
-    { country: "Turkey", points: 0 },
-    { country: "Thailand", points: 0 },
-  ];
+  {
+    position: 1,
+    country: "Spain",
+    flag: "/images/flags/spain.png",
+    points: 41,
+  },
+  {
+    position: 2,
+    country: "Italy",
+    flag: "/images/flags/italy.png",
+    points: 31,
+  },
+  {
+    position: 3,
+    country: "Australia",
+    flag: "/images/flags/australia.png",
+    points: 14,
+  },
+  {
+    position: 4,
+    country: "Japan",
+    flag: "/images/flags/japan.png",
+    points: 13,
+  },
+  {
+    position: 5,
+    country: "France",
+    flag: "/images/flags/france.png",
+    points: 10,
+  },
+  {
+    position: 6,
+    country: "Turkey",
+    flag: "/images/flags/turkey.png",
+    points: 10,
+  },
+  {
+    position: 7,
+    country: "United Kingdom",
+    flag: "/images/flags/uk.png",
+    points: 10,
+  },
+  {
+    position: 8,
+    country: "South Africa",
+    flag: "/images/flags/south africa.png",
+    points: 6,
+  },
+  {
+    position: 9,
+    country: "United States",
+    flag: "/images/flags/eeuu.png",
+    points: 5,
+  },
+  {
+    position: 10,
+    country: "Thailand",
+    flag: "/images/flags/thailand.png",
+    points: 0,
+  },
+];
 
   const circuits = [
     {
@@ -173,42 +223,108 @@ export default function RankingPage() {
                   </div>
 
                   <div className="rounded-full bg-zinc-700 px-5 py-2 text-sm font-bold uppercase">
-                    Upcoming
+                    {circuitIndex === 0 ? "Finished" : "Upcoming"}
                   </div>
 
                 </div>
 
-                {/* EMPTY PODIUM */}
+                {/* PODIUM */}
                 <div className="space-y-3">
 
-                  {[1, 2, 3].map((position) => (
-                    <div
-                      key={position}
-                      className="flex items-center justify-between rounded-xl border border-white/10 bg-black/70 px-4 py-3"
-                    >
+  {circuitIndex === 0 ? (
 
-                      {/* LEFT */}
-                      <div className="flex items-center gap-4">
+    <>
+      {[
+        {
+          position: "P1",
+          rider: "Marc Marquez",
+          number: 93,
+          color: "bg-red-600",
+          flag: "/images/flags/spain.png",
+        },
+        {
+          position: "P2",
+          rider: "Francesco Bagnaia",
+          number: 63,
+          color: "bg-green-600",
+          flag: "/images/flags/italy.png",
+        },
+        {
+          position: "P3",
+          rider: "Jorge Martin",
+          number: 89,
+          color: "bg-yellow-500 text-black",
+          flag: "/images/flags/spain.png",
+        },
+      ].map((rider) => (
 
-                        <div className="w-10 text-lg font-black text-zinc-500">
-                          P{position}
-                        </div>
+        <div
+          key={rider.position}
+          className="flex items-center justify-between rounded-xl border border-white/10 bg-black/70 px-4 py-3"
+        >
 
-                        <div className="flex h-9 w-14 items-center justify-center rounded-lg bg-zinc-700 text-base font-black text-white">
-                          --
-                        </div>
+          <div className="flex items-center gap-4">
 
-                        <div className="text-sm font-semibold uppercase tracking-wide text-zinc-400">
-                          To Be Determined
-                        </div>
+            <div className="w-10 text-lg font-black text-red-500">
+              {rider.position}
+            </div>
 
-                      </div>
+            <div
+              className={`flex h-9 w-14 items-center justify-center rounded-lg font-black ${rider.color}`}
+            >
+              {rider.number}
+            </div>
 
-                    </div>
-                  ))}
+            <div className="font-semibold uppercase">
+              {rider.rider}
+            </div>
 
-                </div>
+          </div>
 
+          <img
+            src={rider.flag}
+            className="h-8 w-12 rounded object-cover"
+          />
+
+        </div>
+
+      ))}
+    </>
+
+  ) : (
+
+    <>
+      {[1, 2, 3].map((position) => (
+
+        <div
+          key={position}
+          className="flex items-center justify-between rounded-xl border border-white/10 bg-black/70 px-4 py-3"
+        >
+
+          <div className="flex items-center gap-4">
+
+            <div className="w-10 text-lg font-black text-zinc-500">
+              P{position}
+            </div>
+
+            <div className="flex h-9 w-14 items-center justify-center rounded-lg bg-zinc-700 font-black">
+              --
+            </div>
+
+            <div className="text-sm font-semibold uppercase tracking-wide text-zinc-400">
+              To Be Determined
+            </div>
+
+          </div>
+
+        </div>
+
+      ))}
+    </>
+
+  )}
+
+</div>
               </div>
             ))}
 
