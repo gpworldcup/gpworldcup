@@ -6,7 +6,7 @@ export default function CalendarPage() {
       country: "Italy",
       circuit: "Mugello Circuit",
       location: "Tuscany",
-      date: "To be confirmed",
+      date: "18-19 July",
     },
 
     {
@@ -15,7 +15,7 @@ export default function CalendarPage() {
       country: "Spain",
       circuit: "Circuit de Jerez",
       location: "Andalusia",
-      date: "To be confirmed",
+      date: "25-26 July",
     },
 
     {
