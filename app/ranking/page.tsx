@@ -253,7 +253,7 @@ export default function RankingPage() {
           position: "P3",
           rider: "Jorge Martin",
           number: 89,
-          color: "bg-yellow-500 text-black",
+          color: "bg-red-600",
           flag: "/images/flags/spain.png",
         },
       ].map((rider) => (
