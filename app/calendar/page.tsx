@@ -15,7 +15,7 @@ export default function CalendarPage() {
       country: "Spain",
       circuit: "Circuit de Jerez",
       location: "Andalusia",
-      date: "25-26 July",
+      date: "01-02 August",
     },
 
     {
