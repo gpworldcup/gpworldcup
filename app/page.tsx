@@ -321,7 +321,6 @@ const countries = [
     </div>
 
     <h2 className="mt-4 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-5xl font-black text-transparent">
-      Mugello Grand Prix
     </h2>
 
     <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
