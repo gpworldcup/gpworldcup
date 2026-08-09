@@ -1,65 +1,15 @@
 export default function RankingPage() {
-  const standings = [
-  {
-    position: 1,
-    country: "Spain",
-    flag: "/images/flags/spain.png",
-    points: 41,
-  },
-  {
-    position: 2,
-    country: "Italy",
-    flag: "/images/flags/italy.png",
-    points: 31,
-  },
-  {
-    position: 3,
-    country: "Australia",
-    flag: "/images/flags/australia.png",
-    points: 14,
-  },
-  {
-    position: 4,
-    country: "Japan",
-    flag: "/images/flags/japan.png",
-    points: 13,
-  },
-  {
-    position: 5,
-    country: "France",
-    flag: "/images/flags/france.png",
-    points: 10,
-  },
-  {
-    position: 6,
-    country: "Turkey",
-    flag: "/images/flags/turkey.png",
-    points: 10,
-  },
-  {
-    position: 7,
-    country: "United Kingdom",
-    flag: "/images/flags/uk.png",
-    points: 10,
-  },
-  {
-    position: 8,
-    country: "South Africa",
-    flag: "/images/flags/south africa.png",
-    points: 6,
-  },
-  {
-    position: 9,
-    country: "United States",
-    flag: "/images/flags/eeuu.png",
-    points: 5,
-  },
-  {
-    position: 10,
-    country: "Thailand",
-    flag: "/images/flags/thailand.png",
-    points: 0,
-  },
+  cconst standings = [
+  { country: "Spain", points: 63 },
+  { country: "Italy", points: 61 },
+  { country: "France", points: 39 },
+  { country: "Australia", points: 31 },
+  { country: "Turkey", points: 28 },
+  { country: "Japan", points: 25 },
+  { country: "United Kingdom", points: 17 },
+  { country: "United States", points: 9 },
+  { country: "South Africa", points: 8 },
+  { country: "Thailand", points: 0 },
 ];
 
   const circuits = [
@@ -74,7 +24,7 @@ export default function RankingPage() {
     },
 
     {
-      name: "Le Mans Bugatti Circuit",
+      name: "Le Mans Circuit",
       country: "France",
     },
 
@@ -223,18 +173,15 @@ export default function RankingPage() {
                   </div>
 
                   <div className="rounded-full bg-zinc-700 px-5 py-2 text-sm font-bold uppercase">
-                    {circuitIndex === 0 ? "Finished" : "Upcoming"}
-                  </div>
+  {circuitIndex <= 1 ? "Finished" : "Upcoming"}
+</div>
 
                 </div>
 
                 {/* PODIUM */}
-                <div className="space-y-3">
-
-  {circuitIndex === 0 ? (
-
-    <>
-      {[
+<div className="space-y-3">
+  {(circuitIndex === 0
+    ? [
         {
           position: "P1",
           rider: "Marc Marquez",
@@ -256,75 +203,85 @@ export default function RankingPage() {
           color: "bg-red-600",
           flag: "/images/flags/spain.png",
         },
-      ].map((rider) => (
-
-        <div
-          key={rider.position}
-          className="flex items-center justify-between rounded-xl border border-white/10 bg-black/70 px-4 py-3"
-        >
-
-          <div className="flex items-center gap-4">
-
-            <div className="w-10 text-lg font-black text-red-500">
-              {rider.position}
-            </div>
-
-            <div
-              className={`flex h-9 w-14 items-center justify-center rounded-lg font-black ${rider.color}`}
-            >
-              {rider.number}
-            </div>
-
-            <div className="font-semibold uppercase">
-              {rider.rider}
-            </div>
-
-          </div>
-
-          <img
-            src={rider.flag}
-            className="h-8 w-12 rounded object-cover"
-          />
-
+      ]
+    : circuitIndex === 1
+    ? [
+        {
+          position: "P1",
+          rider: "Fabio Quartararo",
+          number: 20,
+          color: "bg-blue-800",
+          flag: "/images/flags/france.png",
+        },
+        {
+          position: "P2",
+          rider: "Fabio Di Giannantonio",
+          number: 49,
+          color: "bg-green-600",
+          flag: "/images/flags/italy.png",
+        },
+        {
+          position: "P3",
+          rider: "Jorge Martin",
+          number: 89,
+          color: "bg-red-600",
+          flag: "/images/flags/spain.png",
+        },
+      ]
+    : [
+        {
+          position: "P1",
+          rider: "To Be Determined",
+          number: "--",
+          color: "bg-zinc-700",
+          flag: "",
+        },
+        {
+          position: "P2",
+          rider: "To Be Determined",
+          number: "--",
+          color: "bg-zinc-700",
+          flag: "",
+        },
+        {
+          position: "P3",
+          rider: "To Be Determined",
+          number: "--",
+          color: "bg-zinc-700",
+          flag: "",
+        },
+      ]
+  ).map((rider) => (
+    <div
+      key={rider.position}
+      className="flex items-center justify-between rounded-xl border border-white/10 bg-black/70 px-4 py-3"
+    >
+      <div className="flex items-center gap-4">
+        <div className="w-10 text-lg font-black text-red-500">
+          {rider.position}
         </div>
 
-      ))}
-    </>
-
-  ) : (
-
-    <>
-      {[1, 2, 3].map((position) => (
-
         <div
-          key={position}
-          className="flex items-center justify-between rounded-xl border border-white/10 bg-black/70 px-4 py-3"
+          className={`flex h-9 w-14 items-center justify-center rounded-lg font-black ${rider.color}`}
         >
-
-          <div className="flex items-center gap-4">
-
-            <div className="w-10 text-lg font-black text-zinc-500">
-              P{position}
-            </div>
-
-            <div className="flex h-9 w-14 items-center justify-center rounded-lg bg-zinc-700 font-black">
-              --
-            </div>
-
-            <div className="text-sm font-semibold uppercase tracking-wide text-zinc-400">
-              To Be Determined
-            </div>
-
-          </div>
-
+          {rider.number}
         </div>
 
-      ))}
-    </>
+        <div className="font-semibold uppercase">{rider.rider}</div>
+      </div>
 
-  )}
-
+      {rider.flag ? (
+        <img
+          src={rider.flag}
+          className="h-8 w-12 rounded object-cover"
+        />
+      ) : (
+        <div className="w-12" />
+      )}
+    </div>
+  ))}
 </div>
+
               </div>
             ))}
 
